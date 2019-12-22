@@ -48,7 +48,7 @@ int height(Node*root)
 	return max(h1,h2);
 }
 
-void levelorder(Node *root,int height)
+void print_levelorder(Node *root,int height)
 {
 	if(root==NULL)
 		return;
@@ -56,17 +56,17 @@ void levelorder(Node *root,int height)
 		cout<<root->data<<" ";
 	else if(height>1)
 	{
-		levelorder(root->left,height-1);
-		levelorder(root->right,height-1);
+		print_levelorder(root->left,height-1);
+		print_levelorder(root->right,height-1);
 	}
 }
 
-void print_levelorder(Node *root)
+void levelorder(Node *root)
 {
 	int h=height(root);
 
 	for(int i=1;i<=h;i++)
-		levelorder(root,i);
+		print_levelorder(root,i);
 }
 
 int main()
@@ -86,6 +86,6 @@ int main()
 	cout<<endl;
 
 	cout<<"Levelorder traversal of this binary search tree by simple method is"<<endl;
-	print_levelorder(root);
+	levelorder(root);
 
 }
