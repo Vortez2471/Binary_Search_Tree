@@ -29,15 +29,15 @@ void insert(Node* & root,int key)
 		insert(root->left,key);
 }
 
-void inorder(Node *root,int & k)
+void kth_smallest_element(Node *root,int & k)
 {
 	if(root==NULL)
 		return;
-	inorder(root->left,k);
+	kth_smallest_element(root->left,k);
 	k--;
 	if(k==0)
 		cout<<"Kth smallest element is "<<root->data<<endl;
-	inorder(root->right,k);
+	kth_smallest_element(root->right,k);
 }
 
 int main()
@@ -57,6 +57,6 @@ int main()
 	{
 		cout<<"Enter k"<<endl;
 		cin>>k;
-		inorder(root,k);
+		kth_smallest_element(root,k);
 	}
 }
